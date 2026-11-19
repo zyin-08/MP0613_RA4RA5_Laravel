@@ -101,4 +101,13 @@ class FilmController extends Controller
 
         return view('films.list', ["films" => $films, "title" => "Listado de todas las pelis ordenadas por año"]);
     }
+    /**
+     * Count total number of films
+     */
+    public function countFilms()
+    {
+        $films = FilmController::readFilms();
+
+        return view('films.counter', ["count" => count($films), "title" => "Número total de pelis"]);
+    }
 }
